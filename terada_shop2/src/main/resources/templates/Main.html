@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>terada_shop</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<span th:text="${message}"></span>
+
+<div class="wrapper"><h1>[商品管理]商品情報一覧</h1></div>
+
+	<div class="contents1">
+		<p>処理モード<input type="radio" name="mode" id="s1" checked="checked">検索/修正
+		<input type="radio" name="mode" id="s2">新規登録</p>
+	</div>
+
+	<div id="site-search"  class="contents2">
+		<h1>検索条件</h1>
+ 		<form th:action="@{/search}" th:method="post" id="search" class="js-post_include" target="_self">
+		<span class="btn"><input type="submit" class="btn-flat-border" value="検索"></span>
+<!--  		<p>商品コード<input type="search" th:field="${PRODUCT_MASTER.PRODUCTCD}" id="code" name="code" size="20" maxlength="6" autocomplete="off"></p>
+		<p>商品名<input type="search" th:field="${PRODUCT_MASTER.PRODUCTNAME}" name="name" id="name" size="20" maxlength="50" autocomplete="off"></p>
+-->		<p>製造メーカー<input type="search" name="selectMakers" list="makerList"></p>
+			<datalist id="makerList">
+				<option disabled selected value="---"></option>
+				<option th:each="maker : ${selectMakers}" th:value="${maker.MAKERCD}"></option>
+			</datalist>
+		</form>
+	</div>
+
+<div id="entry" class="contents2">
+<h1>新規登録</h1>
+	<form th:method="POST" id="send" >
+	<span class="btn"><input type="submit" class="btn-flat-border" value="新規登録">
+	<input type="reset" class="btn-flat-border" value="中断"></span>
+		<p>商品コード<input type="text" name="code" size="40" maxlength="6" autocomplete="off"></p>
+		<p>商品名<input type="text" name="name" size="40" maxlength="50" autocomplete="off"></p>
+		<p>単価<input type="text" name="unitPrice" size="40" maxlength="10" autocomplete="off"></p>
+		<p>製造メーカー<input type="search" name="selectMakers" list="makerList"></p>
+		<datalist id="makerList">
+		<option disabled selected value="---"></option>
+			<option>A社</option>
+		</datalist>
+	</form>
+</div>
+
+<div id="result" class="contents2">
+		<h1>検索結果</h1>
+		<a>削除</a>
+		<p>中断<input class="btn-flat-border" id="stop"></p>
+
+		<table>
+		<tr>
+			<th id="no">NO</th>
+			<th>対象</th>
+			<th>商品コード</th>
+			<th>商品名</th>
+			<th>単価</th>
+			<th>製造メーカー</th>
+		</tr>
+       <!--  <tbody>
+              <tr>
+                <td th:text="*{productCd}"></td>
+                <td th:text="*{productName}"></td>
+                <td th:text="*{unitPrice}"></td>
+                <td th:text="*{makerName}"></td>
+                <td class="float-right">
+                <a class="bt-flat-border" th:href="@{/PRODUCT_MASTER/{id}/edit(id=*{id})}">変更</a>
+                <form th:action="@{/PRODUCT_MASTER/{id}(id=*{id})}" th:method="delete">
+                	<button class="btn-flat-border">削除</button>
+              	</form>
+                </td>
+              </tr>
+		</tbody> -->
+		</table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+</html>
