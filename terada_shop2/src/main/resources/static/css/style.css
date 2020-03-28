@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8";
 
 body{
   background-color: white;
@@ -82,6 +82,14 @@ h1, h2, h3, h4, h5, h6, p, body {
 #stop{
   margin-left: 400px;
 }
+ */
+table.basic {
+	counter-reset: number;
+}
+tbody th:before {
+   counter-increment: number;
+   content: counter(number);
+}
 
 table{
   border-collapse: collapse;
@@ -89,7 +97,7 @@ table{
   margin: 20px;
 }
 
-td{
+td, th{
   border:1px solid #333;
   padding: 3px 7px;
   text-align: center;

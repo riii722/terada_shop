@@ -1,4 +1,4 @@
-package com.example.demo.accessingdatamysql;
+package com.example.demo.product_master;
 
 import java.sql.Date;
 
@@ -7,11 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name="product_master")
 public class PRODUCT_MASTER {
-//	@OneToMany(cascade = CascadeType.ALL)
-//	private List<PRODUCT_DETAIL_MASTER> productDetailMaster = new ArrayList<>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="productcd")
@@ -103,5 +104,6 @@ public class PRODUCT_MASTER {
     public void setVersion(Integer version) {
     	this.VERSION = version;
     }
+
 
 }

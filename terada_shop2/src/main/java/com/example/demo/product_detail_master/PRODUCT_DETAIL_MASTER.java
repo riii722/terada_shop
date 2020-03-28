@@ -1,4 +1,4 @@
-package com.example.demo.accessingdatamysql;
+package com.example.demo.product_detail_master;
 
 import java.sql.Date;
 
@@ -11,14 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="product_detail_master")
+//@IdClass(value=KeyId.class)
 public class PRODUCT_DETAIL_MASTER {
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "productCd")
-//	private List<PRODUCT_MASTER> productlMaster = new ArrayList<>();
-
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "makerCd")
-//	private MAKER_MASTER makerMaster;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="productcd")
@@ -120,4 +114,13 @@ public class PRODUCT_DETAIL_MASTER {
     public void setVersion(Integer version) {
     	this.VERSION = version;
     }
+
+//	@OneToOne
+//	@JoinColumn(name="productcd", insertable=false, updatable=false)
+//	private PRODUCT_DETAIL_MASTER productDetailMaster;
+//
+//	@OneToOne
+//	@JoinColumn(name="makerCd", insertable=false, updatable=false)
+//	private MAKER_MASTER makerMaster;
+
 }

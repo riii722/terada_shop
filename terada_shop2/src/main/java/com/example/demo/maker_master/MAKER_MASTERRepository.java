@@ -1,4 +1,6 @@
-package com.example.demo.accessingdatamysql;
+package com.example.demo.maker_master;
+
+import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -6,5 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 // CRUD refers Create, Read, Update, Delete
 
 public interface MAKER_MASTERRepository extends CrudRepository<MAKER_MASTER, String> {
+	public List<MAKER_MASTER> search(String MAKERCD);
 
 }

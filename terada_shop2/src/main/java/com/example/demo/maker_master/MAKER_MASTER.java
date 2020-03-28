@@ -1,4 +1,4 @@
-package com.example.demo.accessingdatamysql;
+package com.example.demo.maker_master;
 
 import java.sql.Date;
 
@@ -12,9 +12,6 @@ import javax.persistence.Table;
 @Entity		//This tells Hibernate to make a table out of this class
 @Table(name="maker_master")		//テーブルの名前を決められるからクラス名は自由にかける
 public class MAKER_MASTER {
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "makercd")
-//	private PRODUCT_DETAIL_MASTER productDetailMaster;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)		//IDに対して一位となるものを付与していく
 	@Column(name="makercd")
@@ -40,7 +37,6 @@ public class MAKER_MASTER {
 
 	@Column(name="version")
 	private Integer VERSION;
-
 
 	public String getMakerCd() {
 	    return MAKERCD;
@@ -104,4 +100,6 @@ public class MAKER_MASTER {
 	public void set(Integer version ) {
 		this.VERSION = version;
 	}
+
+
 }
